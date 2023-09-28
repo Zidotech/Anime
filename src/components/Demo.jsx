@@ -21,7 +21,7 @@ const Demo = () => {
       setQuery(newAnime);
       //console.log("newAnime:", newAnime);
     }
-    //console.log(query.data);
+    console.log(query.data);
   };
 
   return (
@@ -76,7 +76,7 @@ const Demo = () => {
             <div className="">
               <div className="flex flex-wrap  gap-3 px-4 py-1 w-[100%] mx-auto">
                 {query.data.map((anime) => (
-                  <AnimeDetails key={anime._id} anime={anime} />
+                  <AnimeDetails anime={anime} />
                 ))}
               </div>
             </div>

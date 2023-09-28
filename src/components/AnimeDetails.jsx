@@ -26,14 +26,12 @@ const AnimeDetails = ({ anime }) => {
           </span>
         </p>
         <p className="font-satoshi font-medium text-[20px]">
-          <span className="font-medium  text-[18px]">
-            Episodes: {anime.episodes}
-          </span>
+          Episodes:
+          <span className="font-medium  text-[18px]">{anime.episodes}</span>
         </p>
         <p className="font-satoshi font-medium text-[20px]">
-          <span className="font-medium  text-[18px]">
-            Status: {anime.status}
-          </span>
+          Status: &nbsp;
+          <span className="font-medium  text-[18px]">{anime.status}</span>
         </p>
       </div>
       <div className="flex justify-between items-center gap-2 px-4 ">
