@@ -17,7 +17,7 @@ export const animeApi = createApi({
       query: (params) =>
         `/anime?page=1&size=10&search=${encodeURIComponent(
           params.searchUrl
-        )}&sortBy=ranking&sortOrder=asc`,
+        )}&sortBy=title&sortOrder=asc`,
     }),
   }),
 });

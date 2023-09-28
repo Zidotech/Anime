@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { linkIcon, loader } from "../assets";
 import { useLazyGetAnimeQuery } from "../services/anime";
+import AnimeDetails from "./AnimeDetails";
 
 const Demo = () => {
   const [query, setQuery] = useState({
@@ -20,13 +21,13 @@ const Demo = () => {
       setQuery(newAnime);
       //console.log("newAnime:", newAnime);
     }
-    console.log(query.data);
+    //console.log(query.data);
   };
 
   return (
     <section className="mt-16 w-full flex flex-col items-center ">
       {/* Search */}
-      <div className="flex flex-col w-1/2 gap-2">
+      <div className="flex flex-col w-[89%] sm:w-1/2 gap-2">
         <form
           className="relative flex justify-center items-center"
           onSubmit={handleSearch}
@@ -48,7 +49,7 @@ const Demo = () => {
               })
             }
             required
-            className="url_input peer" // When you need to style an element based on the state of a sibling element, mark the sibling with the peer class, and use peer-* modifiers to style the target element
+            className="url_input peer"
           />
           <button
             type="submit"
@@ -72,20 +73,12 @@ const Demo = () => {
           </p>
         ) : (
           query.data && (
-            <div className="flex flex-wrap justify-evenly px-4 py-1">
-              {query.data.map((anime) => (
-                <div key={anime._id} className="anime-card w-[250px]">
-                  <img src={anime.image} alt="" />
-                  <h2>{anime.title}</h2>
-                  <p>Genres: {anime.genres.join(", ")}</p>
-                  <p>Episodes: {anime.episodes}</p>
-                  <p>Status: {anime.status}</p>
-                  <div>
-                    <p>Synopsis:</p>
-                    <span>{anime.synopsis}</span>
-                  </div>
-                </div>
-              ))}
+            <div className="">
+              <div className="flex flex-wrap  gap-3 px-4 py-1 w-[100%] mx-auto">
+                {query.data.map((anime) => (
+                  <AnimeDetails key={anime._id} anime={anime} />
+                ))}
+              </div>
             </div>
           )
         )}
